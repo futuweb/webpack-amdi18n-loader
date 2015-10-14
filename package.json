@@ -1,0 +1,24 @@
+{
+  "name": "amdi18n-loader",
+  "version": "0.1.0",
+  "description": "webpack i18n loader similar to require.js i18n plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/TooBug/webpack-amdi18n-loader.git"
+  },
+  "keywords": [
+    "webpack",
+    "loader",
+    "i18n"
+  ],
+  "author": "TooBug <i@toobug.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TooBug/webpack-amdi18n-loader/issues"
+  },
+  "homepage": "https://github.com/TooBug/webpack-amdi18n-loader#readme"
+}
