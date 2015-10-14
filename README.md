@@ -60,6 +60,8 @@ define([
 
     amdi18n.init();
 
+    console.log(amdi18n.HELLO);
+
     // amdi18n.init([language]);
 
 });
