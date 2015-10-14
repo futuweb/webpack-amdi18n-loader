@@ -1,6 +1,12 @@
-# admi18n-loader
+# amdi18n-loader
 
 Webpack i18n loader similar to require.js i18n plugin.
+
+## Install
+
+```sh
+npm install amdi18n-loader
+```
 
 ## Usage
 
