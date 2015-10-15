@@ -64,6 +64,7 @@ module.exports = function (content) {
   };
 
   retStr += 'amdi18n.init=' + init.toString() + ';';
+  retStr += 'amdi18n.init();';
   retStr += 'module.exports=amdi18n;';
 
   this.cacheable && this.cacheable();

@@ -48,21 +48,23 @@ define([
     'amdi18n!lang'
 ],function(amdi18n){
 
-    // the key difference from require.js i18n plugin
-    // because require.js code is run in runtime
-    // so the language is specified by `require.config`
-    // but in webpack, we have no way to specify language
-    // in runtime, so we have to manully init
-    //
-    // you can pass a language in, if nothing is passed,
-    // it will lookup `window._i18n._locale`,
-    // if nothing found, `root` was used.
-
-    amdi18n.init();
+    // By default, it will lookup `window._i18n._locale`,
+    // If nothing found, `root` was used.
+    // You can manully change the language by
+    // `amdi18n.init(language)`;
 
     console.log(amdi18n.HELLO);
 
-    // amdi18n.init([language]);
 
 });
 ```
+
+## History
+
+### v0.2.0 (2015-10-15)
+
+- Auto init.
+
+### v0.1.0 (2015-10-14)
+
+- First release.
