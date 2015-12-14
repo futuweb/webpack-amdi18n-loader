@@ -1,6 +1,6 @@
 # amdi18n-loader
 
-Webpack i18n loader similar to require.js i18n plugin.
+Webpack i18n loader similar to require.js i18n plugin. The loader support CommonJS module and json file also.
 
 ## Install
 
@@ -48,7 +48,7 @@ define([
     'amdi18n!lang'
 ],function(amdi18n){
 
-    // By default, it will lookup `window._i18n._locale`,
+    // By default, it will lookup `window._i18n.locale`,
     // If nothing found, `root` was used.
     // You can manully change the language by
     // `amdi18n.init(language)`;
@@ -60,6 +60,10 @@ define([
 ```
 
 ## History
+
+### v0.3.0 (2015-12-04)
+
+- Support load CommonJS module and json file.
 
 ### v0.2.0 (2015-10-15)
 
