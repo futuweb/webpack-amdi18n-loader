@@ -61,6 +61,10 @@ define([
 
 ## History
 
+### v0.3.2 (2015-12-15)
+
+- Fix bug using in UMD mode.
+
 ### v0.3.1 (2015-12-15)
 
 - Fix bug on IE.
