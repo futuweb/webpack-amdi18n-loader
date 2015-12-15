@@ -14,7 +14,8 @@ module.exports = function (content) {
   var getJsonFromAmdFile = function(content){
       var sandbox = {
         json:'',
-        module : {}
+        module : {},
+        exports : {}
       };
 
       var mockDefine = function(id, dependencies, obj){
@@ -31,9 +32,9 @@ module.exports = function (content) {
 
       var vm = require('vm');
       var context = vm.createContext(sandbox);
-      var script = new vm.Script('var define='+mockDefine.toString()+';var ret='+content + ';ret&&!json&&(json=ret);');
+      var script = new vm.Script('var define='+mockDefine.toString()+';var ret='+content + ';ret&&!json&&!module.exports&&(json=ret);');
       script.runInContext(context);
-      return sandbox.json;
+      return sandbox.json || (sandbox.module && sandbox.module.exports);
   };
 
   var json = getJsonFromAmdFile(content);
