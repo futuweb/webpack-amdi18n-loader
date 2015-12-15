@@ -61,7 +61,16 @@ module.exports = function (content) {
             language = 'root';
         }
     }
-    Object.assign(this,this.__root,this['__'+language]);
+    if (Object.assign) {
+        Object.assign(this,this.__root,this['__'+language]);
+    } else {
+        var target = this['__' + language] || this.__root;
+        if (target) {
+            for (var name in target) {
+                this[name] = target[name];
+            }
+        }
+    }
   };
 
   retStr += 'amdi18n.init=' + init.toString() + ';';
