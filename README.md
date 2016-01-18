@@ -1,6 +1,6 @@
 # amdi18n-loader
 
-Webpack i18n loader similar to require.js i18n plugin. The loader support CommonJS module and json file also.
+Webpack i18n loader similar to require.js i18n plugin. The loader also support CommonJS module and `.json` files, and more, `.coffee` files.
 
 ## Install
 
@@ -61,17 +61,21 @@ define([
 
 ## History
 
+### v0.4.0 (2016-01-18)
+
+- Support `.coffee` language files. (By Mullerzs)
+
 ### v0.3.2 (2015-12-15)
 
-- Fix bug using in UMD mode.
+- Fix bug using in UMD mode. (By Rick)
 
 ### v0.3.1 (2015-12-15)
 
-- Fix bug on IE.
+- Fix bug on IE. (By Rick)
 
 ### v0.3.0 (2015-12-14)
 
-- Support load CommonJS module and json file.
+- Support load CommonJS module and json file. (By Rick)
 
 ### v0.2.0 (2015-10-15)
 
