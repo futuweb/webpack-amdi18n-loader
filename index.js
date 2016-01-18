@@ -40,6 +40,8 @@ module.exports = function (content) {
   var json = getJsonFromAmdFile(content);
 
   var ret = {};
+  var coffee;
+  var __content;
 
   ret.__root = json.root;
   for(var language in json){
@@ -49,7 +51,15 @@ module.exports = function (content) {
         this.emitError(targetFile + 'not exist!');
         return;
     }
-    ret['__' + language] = getJsonFromAmdFile(fs.readFileSync(targetFile,'utf8'));
+
+    __content = fs.readFileSync(targetFile,'utf8');
+
+    if (targetFile.match(/\.coffee$/)){
+        if(!coffee) coffee = require('coffee-script');
+        __content = coffee.compile(__content,{ bare: true });
+    }
+
+    ret['__' + language] = getJsonFromAmdFile(__content);
   }
 
   var retStr = 'var amdi18n=' + JSON.stringify(ret) + ';';
