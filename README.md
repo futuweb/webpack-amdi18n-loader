@@ -49,6 +49,8 @@ define([
 ],function(amdi18n){
 
     // By default, it will lookup `window._i18n.locale`,
+    // If not found, it will try to use the html[lang] attribute,
+    // For example: <html lang="en"> then language `en` was used,
     // If nothing found, `root` was used.
     // You can manully change the language by
     // `amdi18n.init(language)`;
@@ -60,6 +62,10 @@ define([
 ```
 
 ## History
+
+### v0.5.0
+
+- Detect default language by html[lang] attribute. [#7](https://github.com/futuweb/webpack-amdi18n-loader/issues/7)
 
 ### v0.4.0 (2016-01-18)
 
