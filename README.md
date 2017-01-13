@@ -90,7 +90,7 @@ It's ok to use both `enable` and `disable`, but if any one disables a lang, the 
 
 ## History
 
-### v0.5.0
+### v0.5.0 (2017-01-13)
 
 - Add `enable` and `disable` queries. [#6](https://github.com/futuweb/webpack-amdi18n-loader/issues/7)
 - Detect default language by html[lang] attribute. [#7](https://github.com/futuweb/webpack-amdi18n-loader/issues/7)
