@@ -66,6 +66,8 @@ define([
 ### v0.5.0
 
 - Detect default language by html[lang] attribute. [#7](https://github.com/futuweb/webpack-amdi18n-loader/issues/7)
+- Rewrite the method that extract language definitions.
+- Add testing & travis CI.
 
 ### v0.4.0 (2016-01-18)
 
