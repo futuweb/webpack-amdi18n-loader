@@ -1,5 +1,23 @@
 /*global module*/
+var loaderUtils = require('loader-utils');
+
 module.exports = function (content) {
+	var query = loaderUtils.parseQuery(this.query);
+
+	// whitelist / blacklist
+	var enableList = [];
+	var disableList = [];
+	if(query.enable){
+		enableList = query.enable.replace(/[\[\]]/g,'').split(',').map(function(item){
+			return item.trim();
+		});
+	}
+	if(query.disable){
+		disableList = query.disable.replace(/[\[\]]/g,'').split(',').map(function(item){
+			return item.trim();
+		});
+	}
+
 	var fs = require('fs');
 	var path = require('path');
 	var target = this.resourcePath;
@@ -64,6 +82,8 @@ module.exports = function (content) {
 	// deal all langs except root
 	for(var language in json){
 		if(language === 'root') continue;
+		if(enableList.length && enableList.indexOf(language) === -1) continue;
+		if(disableList.indexOf(language) > -1) continue;
 		// get lang file.
 		var targetFile = path.join(targetPath,language,targetFileName);
 		if(!fs.existsSync(targetFile)){

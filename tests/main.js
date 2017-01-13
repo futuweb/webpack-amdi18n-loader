@@ -66,3 +66,19 @@ describe('format-coffee', function() {
 	});
 });
 
+describe('query', function() {
+	var lang = require('./query/bundle');
+	it('lang.HELLO(root)', function() {
+		lang.HELLO.should.equal('world');
+	});
+	it('lang.HELLO(zh-cn)', function() {
+		lang.init('zh-cn');
+		lang.HELLO.should.equal('你好');
+	});
+	// zh-hk is not enabled
+	it('lang.HELLO(zh-hk)', function() {
+		lang.init('zh-hk');
+		lang.HELLO.should.eql('world');
+	});
+});
+

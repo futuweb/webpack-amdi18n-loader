@@ -3,7 +3,8 @@ module.exports = {
 		'basic/bundle':'./basic/main',
 		'format-amd/bundle':'./format-amd/main',
 		'format-json/bundle':'./format-json/main',
-		'format-coffee/bundle':'./format-coffee/main.coffee'
+		'format-coffee/bundle':'./format-coffee/main.coffee',
+		'query/bundle':'./query/main'
 	},
 	module:{
 		loaders:[{

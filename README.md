@@ -65,10 +65,34 @@ define([
 });
 ```
 
+## Advanced Usage
+
+You can pass queries to enable or disable some langs.
+
+```javascript
+// We use commonjs now. It matters nothing.
+var lang = require('amdi18n?enable=[zh-cn]!');
+
+// It's not ok to use zh-hk now!
+lang.init('zh-hk');
+```
+
+The code below behaviors the same:
+
+```javascript
+// We use commonjs now. It matters nothing.
+var lang = require('amdi18n?disable=[zh-hk]!');
+
+// It's not ok to use zh-hk now!
+lang.init('zh-hk');
+
+It's ok to use both `enable` and `disable`, but if any one disables a lang, the lang will not be usable. You can decide which to use by the length of list.
+
 ## History
 
 ### v0.5.0
 
+- Add `enable` and `disable` queries.
 - Detect default language by html[lang] attribute. [#7](https://github.com/futuweb/webpack-amdi18n-loader/issues/7)
 - Rewrite the method that extract language definitions.
 - Add testing & travis CI.
