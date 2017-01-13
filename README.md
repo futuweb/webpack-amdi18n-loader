@@ -1,5 +1,9 @@
 # amdi18n-loader
 
+[![Travis branch](https://img.shields.io/travis/futuweb/webpack-amdi18n-loader/master.svg)](https://travis-ci.org/futuweb/webpack-amdi18n-loader)
+
+[![npm](https://img.shields.io/npm/v/amdi18n-loader.svg)](https://npmjs.com/package/amdi18n-loader)
+
 Webpack i18n loader similar to require.js i18n plugin. The loader also support CommonJS module and `.json` files, and more, `.coffee` files.
 
 ## Install
