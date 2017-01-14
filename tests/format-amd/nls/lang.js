@@ -6,7 +6,8 @@ define(function(){
 			HELLO: 'world'
 		},
 		'zh-cn': true,
-		'zh-hk': true
+		'zh-hk': true,
+		'en': true
 	};
 
 });

@@ -90,6 +90,10 @@ It's ok to use both `enable` and `disable`, but if any one disables a lang, the 
 
 ## History
 
+### v0.5.1 (2017-01-14)
+
+- Fix: AMD lang file without factory function not working. [#8](https://github.com/futuweb/webpack-amdi18n-loader/issues/8)
+
 ### v0.5.0 (2017-01-13)
 
 - Add `enable` and `disable` queries. [#6](https://github.com/futuweb/webpack-amdi18n-loader/issues/7)

@@ -44,7 +44,11 @@ module.exports = function (content) {
 					factory = dependencies;
 				}
 			}
-			this.json = factory();
+			if(typeof factory === 'function'){
+				this.json = factory();
+			}else{
+				this.json = factory;
+			}
 		};
 
 

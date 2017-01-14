@@ -23,16 +23,20 @@ describe('basic function', function() {
 
 describe('format-amd', function() {
 	var lang = require('./format-amd/bundle');
-	it('lang.HELLO(root)', function() {
+	it('lang.HELLO(root, factory function)', function() {
 		lang.HELLO.should.equal('world');
 	});
-	it('lang.HELLO(zh-cn)', function() {
+	it('lang.HELLO(zh-cn, with dependencies)', function() {
 		lang.init('zh-cn');
 		lang.HELLO.should.equal('你好');
 	});
-	it('lang.HELLO(zh-hk)', function() {
+	it('lang.HELLO(zh-hk, with id and dependencies)', function() {
 		lang.init('zh-hk');
 		lang.HELLO.should.equal('雷吼');
+	});
+	it('lang.HELLO(en, no factory function)', function() {
+		lang.init('en');
+		lang.HELLO.should.equal('world-en');
 	});
 });
 
