@@ -80,7 +80,9 @@ The code below behaviors the same:
 
 ```javascript
 // We use commonjs now. It matters nothing.
-var lang = require('amdi18n?disable=[zh-hk]!');
+// Notice: we use `|` to as separator,
+// Because webpack will break the comma.
+var lang = require('amdi18n?disable=[zh-hk|en-us]!');
 
 // It's not ok to use zh-hk now!
 lang.init('zh-hk');
@@ -89,6 +91,11 @@ lang.init('zh-hk');
 It's ok to use both `enable` and `disable`, but if any one disables a lang, the lang will not be usable. You can decide which to use by the length of list.
 
 ## History
+
+### v0.5.2 (2017-02-07)
+
+- Fix: multi values in `enable` / `disable` queries invalid. [#10](https://github.com/futuweb/webpack-amdi18n-loader/issues/10)
+- If a lang specified in `enable`, no longer required to specify in root.
 
 ### v0.5.1 (2017-01-14)
 

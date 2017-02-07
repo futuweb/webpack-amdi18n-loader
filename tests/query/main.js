@@ -1,1 +1,1 @@
-module.exports = require('../../index?enable=[zh-cn]!./nls/lang');
+module.exports = require('../../index?enable=[zh-cn|en-us]!./nls/lang');

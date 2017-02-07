@@ -8,12 +8,12 @@ module.exports = function (content) {
 	var enableList = [];
 	var disableList = [];
 	if(query.enable){
-		enableList = query.enable.replace(/[\[\]]/g,'').split(',').map(function(item){
+		enableList = query.enable.replace(/[\[\]]/g,'').split('|').map(function(item){
 			return item.trim();
 		});
 	}
 	if(query.disable){
-		disableList = query.disable.replace(/[\[\]]/g,'').split(',').map(function(item){
+		disableList = query.disable.replace(/[\[\]]/g,'').split('|').map(function(item){
 			return item.trim();
 		});
 	}
@@ -83,11 +83,25 @@ module.exports = function (content) {
 	// root lang
 	ret.__root = json.root;
 
-	// deal all langs except root
+	// merge
+	// 1. langs in `root`
+	// 2. enable list
+	// 3. disable list
+	var allLangs = [];
 	for(var language in json){
 		if(language === 'root') continue;
 		if(enableList.length && enableList.indexOf(language) === -1) continue;
 		if(disableList.indexOf(language) > -1) continue;
+		allLangs.push(language);
+	}
+	enableList.forEach(function(language){
+		if(allLangs.indexOf(language) === -1){
+			allLangs.push(language);
+		}
+	});
+	// deal all langs except root
+	for(var i=0; i<allLangs.length; i++){
+		var language = allLangs[i];
 		// get lang file.
 		var targetFile = path.join(targetPath,language,targetFileName);
 		if(!fs.existsSync(targetFile)){

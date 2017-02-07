@@ -79,6 +79,10 @@ describe('query', function() {
 		lang.init('zh-cn');
 		lang.HELLO.should.equal('你好');
 	});
+	it('lang.HELLO(en-us)', function() {
+		lang.init('en-us');
+		lang.HELLO.should.equal('hello-us');
+	});
 	// zh-hk is not enabled
 	it('lang.HELLO(zh-hk)', function() {
 		lang.init('zh-hk');
