@@ -86,7 +86,22 @@ describe('query', function() {
 	// zh-hk is not enabled
 	it('lang.HELLO(zh-hk)', function() {
 		lang.init('zh-hk');
-		lang.HELLO.should.eql('world');
+		lang.HELLO.should.equal('world');
+	});
+});
+
+describe('root-true', function() {
+	var lang = require('./root-true/bundle');
+	it('lang.HELLO(root)', function() {
+		lang.HELLO.should.equal('world');
+	});
+	it('lang.HELLO(zh-cn)', function() {
+		lang.init('zh-cn');
+		lang.HELLO.should.equal('你好');
+	});
+	it('lang.HELLO(zh-hk)', function() {
+		lang.init('zh-hk');
+		lang.HELLO.should.equal('雷吼');
 	});
 });
 

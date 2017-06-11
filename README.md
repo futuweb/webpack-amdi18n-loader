@@ -92,6 +92,10 @@ It's ok to use both `enable` and `disable`, but if any one disables a lang, the 
 
 ## History
 
+### v0.6.0 (2017-06-11)
+
+- Add a type of format support (for require.js i18n plugin). See [#14](https://github.com/futuweb/webpack-amdi18n-loader/issues/14).
+
 ### v0.5.2 (2017-02-07)
 
 - Fix: multi values in `enable` / `disable` queries invalid. [#10](https://github.com/futuweb/webpack-amdi18n-loader/issues/10)

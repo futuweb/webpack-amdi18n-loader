@@ -89,7 +89,7 @@ module.exports = function (content) {
 	// 3. disable list
 	var allLangs = [];
 	for(var language in json){
-		if(language === 'root') continue;
+		if(language === 'root' && typeof json.root !== 'boolean') continue;
 		if(enableList.length && enableList.indexOf(language) === -1) continue;
 		if(disableList.indexOf(language) > -1) continue;
 		allLangs.push(language);

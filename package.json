@@ -1,6 +1,6 @@
 {
   "name": "amdi18n-loader",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "webpack i18n loader similar to require.js i18n plugin",
   "main": "index.js",
   "scripts": {
