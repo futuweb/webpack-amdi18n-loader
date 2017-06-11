@@ -43,16 +43,16 @@ module.exports =
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__(3);
 
 
-/***/ },
+/***/ }),
 /* 1 */,
 /* 2 */,
 /* 3 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	var amdi18n={"__root":{"HELLO":"world"},"__zh-cn":{"HELLO":"你好"},"__zh-hk":{"HELLO":"雷吼"}};amdi18n.init=function (language){
 			// get the default language
@@ -75,5 +75,5 @@ module.exports =
 			}
 		};amdi18n.init();module.exports=amdi18n;
 
-/***/ }
+/***/ })
 /******/ ]);

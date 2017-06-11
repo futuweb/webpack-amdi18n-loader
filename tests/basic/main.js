@@ -1,2 +1,2 @@
-module.exports = require('../../index!./nls/lang');
+module.exports = require('../../index?!./nls/lang');
 
