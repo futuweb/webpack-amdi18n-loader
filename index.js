@@ -111,6 +111,7 @@ module.exports = function (content) {
 
 		// lang file raw content
 		__content = fs.readFileSync(targetFile,'utf8');
+		this.addDependency(targetFile);
 
 		// compile coffee script
 		if (targetFile.match(/\.coffee$/)){
