@@ -94,7 +94,7 @@ It's ok to use both `enable` and `disable`, but if any one disables a lang, the 
 
 ### v0.6.1 (2017-06-29)
 
-- Add lang files to webpack dependencies, so they can be watched and live-reloaded. See [#15](https://github.com/futuweb/webpack-amdi18n-loader/issues/15).
+- Add lang files to webpack dependencies, so they can be watched and live-reloaded. See [#15](https://github.com/futuweb/webpack-amdi18n-loader/issues/15). (By jou)
 
 ### v0.6.0 (2017-06-11)
 
