@@ -109,9 +109,13 @@ module.exports = function (content) {
 			return;
 		}
 
+		// add targetFile to webpack dependencies
+		// so they can be watched and live-reloaded
+		// see #15
+		this.addDependency(targetFile);
+
 		// lang file raw content
 		__content = fs.readFileSync(targetFile,'utf8');
-		this.addDependency(targetFile);
 
 		// compile coffee script
 		if (targetFile.match(/\.coffee$/)){
