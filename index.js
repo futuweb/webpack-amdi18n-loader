@@ -129,7 +129,7 @@ module.exports = function (content) {
 
 	// amdi18n is the final lang definition.
 	var retStr = 'var amdi18n=' + JSON.stringify(ret) + ';';
-
+	
 	// this function would be exported
 	// and running in browser
 	// it's used to determin which lang to use
@@ -151,6 +151,13 @@ module.exports = function (content) {
 		if (target) {
 			for (var name in target) {
 				this[name] = target[name];
+			}
+		}
+
+		// fallback to root
+		for(var name in this.__root){
+			if(typeof this[name] === 'undefined'){
+				this[name] = this.__root[name];
 			}
 		}
 	};

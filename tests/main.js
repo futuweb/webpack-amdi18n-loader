@@ -19,6 +19,16 @@ describe('basic function', function() {
 		lang.init('zh-hk');
 		lang.HELLO.should.equal('雷吼');
 	});
+
+});
+
+describe('fallback', function() {
+	global.window._i18n = {locale:'zh-hk'};
+	var lang = require('./fallback/bundle');
+	delete global.window._i18n;
+	it('fallback to root', function() {
+		lang.FALLBACK.should.equal('FALLBACK');
+	});
 });
 
 describe('format-amd', function() {

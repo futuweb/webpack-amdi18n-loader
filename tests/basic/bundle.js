@@ -72,6 +72,13 @@ module.exports =
 					this[name] = target[name];
 				}
 			}
+
+			// fallback to root
+			for(var name in this.__root){
+				if(typeof this[name] === 'undefined'){
+					this[name] = this.__root[name];
+				}
+			}
 		};amdi18n.init();module.exports=amdi18n;
 
 /***/ })

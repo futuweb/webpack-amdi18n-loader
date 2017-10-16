@@ -46,12 +46,12 @@ module.exports =
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(5);
+	module.exports = __webpack_require__(6);
 
 
 /***/ }),
 
-/***/ 5:
+/***/ 6:
 /***/ (function(module, exports) {
 
 	var amdi18n={"__root":{"HELLO":"world"},"__zh-cn":{"HELLO":"你好"},"__en-us":{"HELLO":"hello-us"}};amdi18n.init=function (language){
@@ -71,6 +71,13 @@ module.exports =
 			if (target) {
 				for (var name in target) {
 					this[name] = target[name];
+				}
+			}
+
+			// fallback to root
+			for(var name in this.__root){
+				if(typeof this[name] === 'undefined'){
+					this[name] = this.__root[name];
 				}
 			}
 		};amdi18n.init();module.exports=amdi18n;
