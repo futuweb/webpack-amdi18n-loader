@@ -48,7 +48,7 @@ Then use it like this:
 
 ```javascript
 define([
-    'amdi18n!lang'
+    'amdi18n-loader!lang'
 ],function(amdi18n){
 
     // By default, it will lookup `window._i18n.locale`,
@@ -70,7 +70,7 @@ You can pass queries to enable or disable some langs.
 
 ```javascript
 // We use commonjs now. It matters nothing.
-var lang = require('amdi18n?enable=[zh-cn]!');
+var lang = require('amdi18n-loader?enable=[zh-cn]!');
 
 // It's not ok to use zh-hk now!
 lang.init('zh-hk');
@@ -82,7 +82,7 @@ The code below behaviors the same:
 // We use commonjs now. It matters nothing.
 // Notice: we use `|` to as separator,
 // Because webpack will break the comma.
-var lang = require('amdi18n?disable=[zh-hk|en-us]!');
+var lang = require('amdi18n-loader?disable=[zh-hk|en-us]!');
 
 // It's not ok to use zh-hk now!
 lang.init('zh-hk');
