@@ -92,6 +92,10 @@ It's ok to use both `enable` and `disable`, but if any one disables a lang, the 
 
 ## History
 
+### v0.7.0 (2018-03-20)
+
+- Support functions in lang files. [#20](https://github.com/futuweb/webpack-amdi18n-loader/issues/20) (By ggriffithsIDBS)
+
 ### v0.6.2 (2017-10-16)
 
 - Fix: failed to fallback to root. [#17](https://github.com/futuweb/webpack-amdi18n-loader/issues/17)
