@@ -115,3 +115,56 @@ describe('root-true', function() {
 	});
 });
 
+describe('format-amd-functions', function() {
+	var lang = require('./format-amd-functions/bundle');
+
+	it('lang.HELLO(root, factory function)', function() {
+		lang.HELLO.should.equal('world');
+	});
+	it('lang.HELLO_ARROW(root, factory function)', function() {
+		lang.HELLO_ARROW(2).should.equal('world 2 times');
+	});
+	it('lang.HELLO_OBJECT.HELLO_FUNC(root, factory function)', function() {
+		lang.HELLO_OBJECT.HELLO_FUNC(2).should.equal('world 2 times');
+	});
+
+	it('lang.HELLO(zh-cn, with dependencies)', function() {
+		lang.init('zh-cn');
+		lang.HELLO.should.equal('你好');
+	});
+	it('lang.HELLO_ARROW(zh-cn, with dependencies)', function() {
+		lang.init('zh-cn');
+		lang.HELLO_ARROW(2).should.equal('你好 2 times');
+	});
+	it('lang.HELLO_OBJECT.HELLO_FUNC(zh-cn, with dependencies)', function() {
+		lang.init('zh-cn');
+		lang.HELLO_OBJECT.HELLO_FUNC(2).should.equal('你好 2 times');
+	});
+
+	it('lang.HELLO(zh-hk, with id and dependencies)', function() {
+		lang.init('zh-hk');
+		lang.HELLO.should.equal('雷吼');
+	});
+	it('lang.HELLO_ARROW(zh-hk, with id and dependencies)', function() {
+		lang.init('zh-hk');
+		lang.HELLO_ARROW(2).should.equal('雷吼 2 times');
+	});
+	it('lang.HELLO_OBJECT.HELLO_FUNC(zh-hk, with id and dependencies)', function() {
+		lang.init('zh-hk');
+		lang.HELLO_OBJECT.HELLO_FUNC(2).should.equal('雷吼 2 times');
+	});
+
+	it('lang.HELLO(en, no factory function)', function() {
+		lang.init('en');
+		lang.HELLO.should.equal('world-en');
+	});
+	it('lang.HELLO_ARROW(en, no factory function)', function() {
+		lang.init('en');
+		lang.HELLO_ARROW(2).should.equal('world-en 2 times');
+	});
+	it('lang.HELLO_OBJECT.HELLO_FUNC(en, no factory function)', function() {
+		lang.init('en');
+		lang.HELLO_OBJECT.HELLO_FUNC(2).should.equal('world-en 2 times');
+	});
+});
+
