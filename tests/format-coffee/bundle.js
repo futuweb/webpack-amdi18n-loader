@@ -41,18 +41,17 @@ module.exports =
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(4);
+	module.exports = __webpack_require__(5);
 
 
 /***/ }),
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */
+
+/***/ 5:
 /***/ (function(module, exports) {
 
 	var amdi18n={"__root":{"HELLO":"world"},"__zh-cn":{"HELLO":"你好"},"__zh-hk":{"HELLO":"雷吼"}};amdi18n.init=function (language){
@@ -84,4 +83,5 @@ module.exports =
 		};amdi18n.init();module.exports=amdi18n;
 
 /***/ })
-/******/ ]);
+
+/******/ });

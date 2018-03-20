@@ -45,18 +45,25 @@ module.exports =
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(4);
+	module.exports = __webpack_require__(3);
 
 
 
 /***/ }),
 /* 1 */,
 /* 2 */,
-/* 3 */,
-/* 4 */
+/* 3 */
 /***/ (function(module, exports) {
 
-	var amdi18n={"__root":{"HELLO":"world"},"__zh-cn":{"HELLO":"你好"},"__zh-hk":{"HELLO":"雷吼"},"__en":{"HELLO":"world-en"}};amdi18n.init=function (language){
+	var amdi18n={"__root":{"HELLO":"world","HELLO_ARROW":(number) => `world ${number} times`,"HELLO_OBJECT":{"HELLO":"world","HELLO_FUNC":function (number) {
+						return `${this.HELLO} ${number} times`;
+					}}},"__zh-cn":{"HELLO":"你好","HELLO_ARROW":(number) => `你好 ${number} times`,"HELLO_OBJECT":{"HELLO":"你好","HELLO_FUNC":function (number) {
+				return `${this.HELLO} ${number} times`;
+			}}},"__zh-hk":{"HELLO":"雷吼","HELLO_ARROW":(number) => `雷吼 ${number} times`,"HELLO_OBJECT":{"HELLO":"雷吼","HELLO_FUNC":function (number) {
+				return `${this.HELLO} ${number} times`;
+			}}},"__en":{"HELLO":"world-en","HELLO_ARROW":(number) => `world-en ${number} times`,"HELLO_OBJECT":{"HELLO":"world-en","HELLO_FUNC":function (number) {
+				return `${this.HELLO} ${number} times`;
+			}}}};amdi18n.init=function (language){
 			// get the default language
 			if(!language){
 				if(window._i18n && window._i18n.locale){

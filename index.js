@@ -126,10 +126,25 @@ module.exports = function (content) {
 		// give this lang definition to ret
 		ret['__' + language] = getJsonFromFile(__content);
 	}
-
+	// store found functions as strings
+	var funcs = [];
 	// amdi18n is the final lang definition.
-	var retStr = 'var amdi18n=' + JSON.stringify(ret) + ';';
+	var retStr = 'var amdi18n=' + JSON.stringify(ret, function(key,value) {
+		if(typeof(value) === 'function') {
+			var vFunc = value.toString();
+			// store json version (function with quotes)
+			funcs.push(JSON.stringify(vFunc));
+			return vFunc;
+		}
+		return value;
+	}) + ';';
+
+	// replace function with quotes with raw function
+	for(let func of funcs) {
+		retStr = retStr.replace(func, JSON.parse(func));
+	}
 	
+
 	// this function would be exported
 	// and running in browser
 	// it's used to determin which lang to use
