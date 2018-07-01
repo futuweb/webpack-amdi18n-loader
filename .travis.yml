@@ -8,11 +8,11 @@ install:
   - npm install
 
 script:
-  - echo "testing with webpack 1.x"&&npm install webpack@1
+  - echo "testing with webpack 1.x"&&npm install --no-save webpack@1
   - npm test
-  - echo "testing with webpack 2.x"&&npm prune&&npm install webpack@2
+  - echo "testing with webpack 2.x"&&npm prune&&npm install --no-save webpack@2
   - npm test
-  - echo "testing with webpack 3.x"&&npm prune&&npm install webpack@3
+  - echo "testing with webpack 3.x"&&npm prune&&npm install --no-save webpack@3
   - npm test
-  - echo "testing with webpack 4.x"&&npm prune&&npm install webpack@4
+  - echo "testing with webpack 4.x"&&npm prune&&npm install --no-save webpack-command webpack@4
   - npm test
