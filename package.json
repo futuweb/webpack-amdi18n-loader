@@ -4,7 +4,7 @@
   "description": "webpack i18n loader similar to require.js i18n plugin",
   "main": "index.js",
   "scripts": {
-    "test": "cd tests && ../node_modules/.bin/webpack && ../node_modules/.bin/mocha ../tests/main.js"
+    "test": "cd tests && npm install webpack@1 && ../node_modules/.bin/webpack && ../node_modules/.bin/mocha ../tests/main.js && npm install webpack@2 && ../node_modules/.bin/webpack && ../node_modules/.bin/mocha ../tests/main.js && npm install webpack@3 && ../node_modules/.bin/webpack && ../node_modules/.bin/mocha ../tests/main.js && npm install webpack-command webpack@4 && ../node_modules/.bin/webpack && ../node_modules/.bin/mocha ../tests/main.js"
   },
   "repository": {
     "type": "git",
@@ -24,8 +24,11 @@
   "dependencies": {
     "coffee-loader": "^0.7.2",
     "coffee-script": "^1.12.2",
+    "webpack": "^4.14.0",
+    "webpack-command": "^0.3.1"
+  },
+  "devDependencies": {
     "mocha": "^3.2.0",
-    "should": "^11.1.2",
-    "webpack": "^1.14.0"
+    "should": "^11.1.2"
   }
 }

@@ -1,4 +1,10 @@
-module.exports = {
+const webpack = require('webpack');
+let webpackMainVersion = 0;
+if(webpack.version){
+	webpackMainVersion = parseInt(webpack.version);
+}
+
+const config = {
 	entry:{
 		'basic/bundle':'./basic/main',
 		'fallback/bundle':'./fallback/main',
@@ -11,10 +17,7 @@ module.exports = {
 		'root-true/bundle':'./root-true/main',
 	},
 	module:{
-		loaders:[{
-			test: /\.coffee$/,
-			loader: 'coffee-loader'
-		}]
+		
 	},
 	output:{
 		library:'bundle',
@@ -22,3 +25,18 @@ module.exports = {
 		filename:'[name].js'
 	}
 };
+
+if(webpackMainVersion < 4){
+	config.module.loaders = [{
+		test: /\.coffee$/,
+		loader: 'coffee-loader'
+	}];
+}else{
+	config.module.rules = [{
+		test: /\.coffee$/,
+		use: 'coffee-loader'
+	}];
+}
+
+
+module.exports = config;

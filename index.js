@@ -2,7 +2,11 @@
 var loaderUtils = require('loader-utils');
 
 module.exports = function (content) {
-	var query = loaderUtils.parseQuery(this.query);
+	console.log(this.loaders);
+	var query = {};
+	if(this.query){
+		query = loaderUtils.parseQuery(this.query);
+	}
 
 	// whitelist / blacklist
 	var enableList = [];
