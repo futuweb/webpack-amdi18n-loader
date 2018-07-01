@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path = require('path');
 let webpackMainVersion = 0;
 if(webpack.version){
 	webpackMainVersion = parseInt(webpack.version);
@@ -14,6 +15,7 @@ const config = {
 		'format-esm/bundle':'./format-esm/main',
 		'format-coffee/bundle':'./format-coffee/main.coffee',
 		'query/bundle':'./query/main',
+		'query-config/bundle':'./query-config/main',
 		'root-true/bundle':'./root-true/main',
 	},
 	module:{
@@ -22,6 +24,7 @@ const config = {
 	output:{
 		library:'bundle',
 		libraryTarget:'commonjs2',
+		path: path.join(__dirname, '.'),
 		filename:'[name].js'
 	}
 };
@@ -33,12 +36,23 @@ if(webpackMainVersion < 4){
 	}];
 }else{
 	config.mode = 'development';
+	config.resolveLoader = {
+		alias: {
+			'amdi18n-loader': path.join(__dirname, '../index.js')
+		}
+	},
 	config.module.rules = [{
 		test: /\.coffee$/,
 		use: 'coffee-loader'
 	},{
 		test: /\.json$/,
 		type: 'javascript/auto'
+	},{
+		test: /query\-config\/nls\/lang\.js/,
+		loader: 'amdi18n-loader',
+		options: {
+			exposeRoot: true
+		}
 	}];
 }
 

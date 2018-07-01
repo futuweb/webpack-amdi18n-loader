@@ -4,8 +4,13 @@ var loaderUtils = require('loader-utils');
 module.exports = function (content) {
 	var query = {};
 	if(this.query){
-		query = loaderUtils.parseQuery(this.query);
+		if(typeof this.query === 'string'){
+			query = loaderUtils.parseQuery(this.query);
+		}else{
+			query = this.query;
+		}
 	}
+	
 
 	// whitelist / blacklist
 	var enableList = [];
@@ -87,7 +92,7 @@ module.exports = function (content) {
 
 	// root lang
 	ret.__root = json.root;
-	if(query['expose-root'] === '1'){
+	if(query['expose-root'] || query.exposeRoot){
 		ret.root = json.root;
 	}
 
