@@ -54,7 +54,7 @@ module.exports =
 /***/ 8:
 /***/ (function(module, exports) {
 
-	var amdi18n={"__root":{"HELLO":"world"},"__zh-cn":{"HELLO":"你好"},"__en-us":{"HELLO":"hello-us"}};amdi18n.init=function (language){
+	var amdi18n={"__root":{"HELLO":"world"},"root":{"HELLO":"world"},"__zh-cn":{"HELLO":"你好"},"__en-us":{"HELLO":"hello-us"}};amdi18n.init=function (language){
 			// get the default language
 			if(!language){
 				if(window._i18n && window._i18n.locale){

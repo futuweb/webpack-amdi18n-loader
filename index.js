@@ -84,6 +84,9 @@ module.exports = function (content) {
 
 	// root lang
 	ret.__root = json.root;
+	if(query['expose-root'] === '1'){
+		ret.root = json.root;
+	}
 
 	// merge
 	// 1. langs in `root`

@@ -76,6 +76,8 @@ define([
 
 ## Advanced Usage
 
+### Enable/Disable language packages
+
 You can pass queries to enable or disable some langs.
 
 ```javascript
@@ -99,6 +101,14 @@ lang.init('zh-hk');
 ```
 
 It's ok to use both `enable` and `disable`, but if any one disables a lang, the lang will not be usable. You can decide which to use by the length of list.
+
+### Expose Root Object
+
+In some case, accessing `root` object is required (#19). You can pass a query `expose-root` to expose the `root` object.
+
+```javascript
+require('amdi18n-loader?expose-root=1!')
+```
 
 ## History
 

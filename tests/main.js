@@ -97,6 +97,9 @@ describe('format-coffee', function() {
 
 describe('query', function() {
 	var lang = require('./query/bundle');
+	it('lang.root should be an object', function() {
+		lang.root.should.be.an.Object();
+	});
 	it('lang.HELLO(root)', function() {
 		lang.HELLO.should.equal('world');
 	});
