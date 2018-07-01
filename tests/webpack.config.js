@@ -32,9 +32,13 @@ if(webpackMainVersion < 4){
 		loader: 'coffee-loader'
 	}];
 }else{
+	config.mode = 'development';
 	config.module.rules = [{
 		test: /\.coffee$/,
 		use: 'coffee-loader'
+	},{
+		test: /\.json$/,
+		type: 'javascript/auto'
 	}];
 }
 
