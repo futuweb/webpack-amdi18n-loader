@@ -9,6 +9,7 @@ It's quite similar to require.js i18n plugin.
 
 Features:
 
+- Fully compatitable with webpack 1/2/3/4
 - Works with language packages. (similar to require.js)
 - Support CommonJS/AMD/ESM module and `.json` files, and more, `.coffee` files
 - Auto init current language via `html[lang]` attribute or global varible
@@ -23,7 +24,7 @@ npm install amdi18n-loader
 
 ## Usage
 
-First look at require.js i18n plugin's docs [at here](http://requirejs.org/docs/api.html#i18n).
+First look at require.js i18n plugin's docs [here](http://requirejs.org/docs/api.html#i18n).
 
 The structure of language packages are like this:
 
@@ -111,6 +112,14 @@ require('amdi18n-loader?expose-root=1!')
 ```
 
 ## History
+
+### v0.8.0 (2018-07-01)
+
+- Support webpack 4.
+- Support ESM modules in lang files. (`export default {}`). [#16](https://github.com/futuweb/webpack-amdi18n-loader/issues/16)
+- Add a config to expose the `root` object. [#19](https://github.com/futuweb/webpack-amdi18n-loader/issues/19)
+- Support using in global config (e.g. `webpack.config.js`) and passing options.
+- Better auto test for Node 7/8/10 and webpack 1/2/3/4. 
 
 ### v0.7.0 (2018-03-20)
 
