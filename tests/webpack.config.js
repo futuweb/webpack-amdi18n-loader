@@ -5,6 +5,7 @@ module.exports = {
 		'format-amd/bundle':'./format-amd/main',
 		'format-amd-functions/bundle':'./format-amd-functions/main',
 		'format-json/bundle':'./format-json/main',
+		'format-esm/bundle':'./format-esm/main',
 		'format-coffee/bundle':'./format-coffee/main.coffee',
 		'query/bundle':'./query/main',
 		'root-true/bundle':'./root-true/main',

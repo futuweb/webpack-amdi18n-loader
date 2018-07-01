@@ -3,7 +3,17 @@
 [![Travis branch](https://img.shields.io/travis/futuweb/webpack-amdi18n-loader/master.svg)](https://travis-ci.org/futuweb/webpack-amdi18n-loader)
 [![npm](https://img.shields.io/npm/v/amdi18n-loader.svg)](https://npmjs.com/package/amdi18n-loader)
 
-Webpack i18n loader similar to require.js i18n plugin. The loader also support CommonJS module and `.json` files, and more, `.coffee` files.
+Webpack i18n loader helps you project to process internationalization (i18n).
+
+It's quite similar to require.js i18n plugin. 
+
+Features:
+
+- Works with language packages. (similar to require.js)
+- Support CommonJS/AMD/ESM module and `.json` files, and more, `.coffee` files
+- Auto init current language via `html[lang]` attribute or global varible
+- Switch current language at runtime
+- Enable/Disable language packages via queries
 
 ## Install
 
@@ -15,7 +25,7 @@ npm install amdi18n-loader
 
 First look at require.js i18n plugin's docs [at here](http://requirejs.org/docs/api.html#i18n).
 
-The language part is like this:
+The structure of language packages are like this:
 
 - `lang.js`
 - `zh-cn/lang.js`

@@ -65,6 +65,21 @@ describe('format-json', function() {
 	});
 });
 
+describe('format-esm', function() {
+	var lang = require('./format-esm/bundle');
+	it('lang.HELLO(root)', function() {
+		lang.HELLO.should.equal('world');
+	});
+	it('lang.HELLO(zh-cn)', function() {
+		lang.init('zh-cn');
+		lang.HELLO.should.equal('你好');
+	});
+	it('lang.HELLO(zh-hk)', function() {
+		lang.init('zh-hk');
+		lang.HELLO.should.equal('雷吼');
+	});
+});
+
 describe('format-coffee', function() {
 	var lang = require('./format-coffee/bundle');
 	it('lang.HELLO(root)', function() {
@@ -167,4 +182,3 @@ describe('format-amd-functions', function() {
 		lang.HELLO_OBJECT.HELLO_FUNC(2).should.equal('world-en 2 times');
 	});
 });
-
