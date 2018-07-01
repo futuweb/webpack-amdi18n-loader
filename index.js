@@ -2,7 +2,6 @@
 var loaderUtils = require('loader-utils');
 
 module.exports = function (content) {
-	console.log(this.loaders);
 	var query = {};
 	if(this.query){
 		query = loaderUtils.parseQuery(this.query);
