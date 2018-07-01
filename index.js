@@ -84,6 +84,8 @@ module.exports = function (content) {
 
 	// root lang
 	ret.__root = json.root;
+	// provide a fallback for dynamically required loading with things like dojo/i18n
+	ret.root = json.root;
 
 	// merge
 	// 1. langs in `root`
@@ -127,6 +129,8 @@ module.exports = function (content) {
 
 		// give this lang definition to ret
 		ret['__' + language] = getJsonFromFile(__content);
+		// provide a fallback for dynamically required loading with things like dojo/i18n
+		ret[language] = getJsonFromFile(__content);
 	}
 	// store found functions as strings
 	var funcs = [];
