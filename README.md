@@ -3,7 +3,7 @@
 [![Travis branch](https://img.shields.io/travis/futuweb/webpack-amdi18n-loader/master.svg)](https://travis-ci.org/futuweb/webpack-amdi18n-loader)
 [![npm](https://img.shields.io/npm/v/amdi18n-loader.svg)](https://npmjs.com/package/amdi18n-loader)
 
-Webpack i18n loader helps you project to process internationalization (i18n).
+Webpack i18n loader helps your projects to process internationalization (i18n).
 
 It's quite similar to require.js i18n plugin. 
 
@@ -109,6 +109,20 @@ In some case, accessing `root` object is required (#19). You can pass a query `e
 
 ```javascript
 require('amdi18n-loader?expose-root=1!')
+```
+
+## Notice
+
+If you choose to use `.json` files as your lang files in webpack 4+, You need to specify the type of json files, otherwise webpack will try to parse the final script content as JSON, and throws errors.
+
+```javascript
+// in module.rules
+{
+    // to avoid affecting other json files
+    // you'd better specify the lang files only, 
+    test: /\.json$/,
+    type: 'javascript/auto'
+},
 ```
 
 ## History
