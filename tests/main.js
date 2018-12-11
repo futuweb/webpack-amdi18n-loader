@@ -1,7 +1,21 @@
 var should = require('should');
-// mock
-global.document = {documentElement:{}};
-global.window = {document:document};
+
+function mockWindowAndDocument() {
+	// Currently, the tests only run on Node, so window will never exist.
+	// But if the tests could run in the browser, we don't want to overwrite
+	// window or document.
+	var windowExists = typeof window !== 'undefined';
+	if (!windowExists) {
+		document = {documentElement:{}};
+		window = {document:document};
+	}
+	return function() {
+		if (!windowExists) {
+			delete window;
+			delete document;
+		}
+	};
+}
 
 describe('basic function', function() {
 	var lang = require('./basic/bundle');
@@ -23,9 +37,10 @@ describe('basic function', function() {
 });
 
 describe('fallback', function() {
-	global.window._i18n = {locale:'zh-hk'};
+	var restoreWindow = mockWindowAndDocument();
+	window._i18n = {locale:'zh-hk'};
 	var lang = require('./fallback/bundle');
-	delete global.window._i18n;
+	restoreWindow();
 	it('fallback to root', function() {
 		lang.FALLBACK.should.equal('FALLBACK');
 	});

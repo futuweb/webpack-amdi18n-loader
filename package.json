@@ -4,7 +4,7 @@
   "description": "webpack i18n loader similar to require.js i18n plugin",
   "main": "index.js",
   "scripts": {
-    "test": "cd tests &&../node_modules/.bin/webpack && ../node_modules/.bin/mocha ../tests/main.js"
+    "test": "cd tests && webpack && mocha ../tests/main.js"
   },
   "repository": {
     "type": "git",

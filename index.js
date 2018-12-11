@@ -165,9 +165,9 @@ module.exports = function (content) {
 	var init = function(language){
 		// get the default language
 		if(!language){
-			if(window._i18n && window._i18n.locale){
+			if(typeof window !== 'undefined' && window._i18n && window._i18n.locale){
 				language = window._i18n.locale;
-			}else if(document.documentElement.lang){
+			}else if(typeof document !== 'undefined' && document.documentElement.lang){
 				language = document.documentElement.lang;
 			}else{
 				language = 'root';
