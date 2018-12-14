@@ -10,7 +10,7 @@ module.exports = function (content) {
 			query = this.query;
 		}
 	}
-	
+
 
 	// whitelist / blacklist
 	var enableList = [];
@@ -113,7 +113,7 @@ module.exports = function (content) {
 		}
 	});
 	// deal all langs except root
-	for(var i=0; i<allLangs.length; i++){
+	for(var i = 0; i < allLangs.length; i++){
 		var language = allLangs[i];
 		// get lang file.
 		var targetFile = path.join(targetPath,language,targetFileName);
@@ -143,7 +143,7 @@ module.exports = function (content) {
 	var funcs = [];
 	// amdi18n is the final lang definition.
 	var retStr = 'var amdi18n=' + JSON.stringify(ret, function(key,value) {
-		if(typeof(value) === 'function') {
+		if(typeof value === 'function') {
 			var vFunc = value.toString();
 			// store json version (function with quotes)
 			funcs.push(JSON.stringify(vFunc));
@@ -156,7 +156,7 @@ module.exports = function (content) {
 	for(let func of funcs) {
 		retStr = retStr.replace(func, JSON.parse(func));
 	}
-	
+
 
 	// this function would be exported
 	// and running in browser

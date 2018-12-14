@@ -26,6 +26,7 @@
     "coffee-script": "^1.12.2"
   },
   "devDependencies": {
+    "eslint": "^5.10.0",
     "mocha": "^3.2.0",
     "should": "^11.1.2"
   }
