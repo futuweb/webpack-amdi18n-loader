@@ -3,7 +3,7 @@
 [![Travis branch](https://img.shields.io/travis/futuweb/webpack-amdi18n-loader/master.svg)](https://travis-ci.org/futuweb/webpack-amdi18n-loader)
 [![npm](https://img.shields.io/npm/v/amdi18n-loader.svg)](https://npmjs.com/package/amdi18n-loader)
 
-[./README_zh.md](中文文档)
+[中文文档](./README_zh.md)
 
 Webpack i18n loader helps your projects to process internationalization (i18n).
 
