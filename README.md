@@ -3,16 +3,18 @@
 [![Travis branch](https://img.shields.io/travis/futuweb/webpack-amdi18n-loader/master.svg)](https://travis-ci.org/futuweb/webpack-amdi18n-loader)
 [![npm](https://img.shields.io/npm/v/amdi18n-loader.svg)](https://npmjs.com/package/amdi18n-loader)
 
+[./README_zh.md](中文文档)
+
 Webpack i18n loader helps your projects to process internationalization (i18n).
 
-It's quite similar to require.js i18n plugin. 
+It's quite similar to require.js i18n plugin.
 
 Features:
 
 - Fully compatitable with webpack 1/2/3/4
 - Works with language packages. (similar to require.js)
 - Support CommonJS/AMD/ESM module and `.json` files, and more, `.coffee` files
-- Auto init current language via `html[lang]` attribute or global varible
+- Auto init current language via `html[lang]` attribute, global varible or browser/system settings
 - Switch current language at runtime
 - Enable/Disable language packages via queries
 
@@ -63,9 +65,15 @@ define([
 ],function(amdi18n){
 
     // By default, it will lookup `window._i18n.locale`,
+    //
     // If not found, it will try to use the html[lang] attribute,
     // For example: <html lang="en"> then language `en` was used,
+    //
+    // If still not found, it will try to use browser/system settings
+    //     navigator.languages[0] || navigator.language || navigator.userLanguage (.toLowerCase())
+    //
     // If nothing found, `root` was used.
+    //
     // You can manully change the language by
     // `amdi18n.init(language)`;
 
@@ -119,7 +127,7 @@ If you choose to use `.json` files as your lang files in webpack 4+, You need to
 // in module.rules
 {
     // to avoid affecting other json files
-    // you'd better specify the lang files only, 
+    // you'd better specify the lang files only,
     test: /\.json$/,
     type: 'javascript/auto'
 },
@@ -127,13 +135,18 @@ If you choose to use `.json` files as your lang files in webpack 4+, You need to
 
 ## History
 
+### v0.9.0 (2018-12-14)
+
+- Read language settings from `navigator.languages` `navigator.language` and `navigator.userLanguage`. [#25]((https://github.com/futuweb/webpack-amdi18n-loader/issues/25)
+- Support using in Node environment. [#26](https://github.com/futuweb/webpack-amdi18n-loader/issues/26) (By gitgrimbo)
+
 ### v0.8.0 (2018-07-01)
 
 - Support webpack 4.
 - Support ESM modules in lang files. (`export default {}`). [#16](https://github.com/futuweb/webpack-amdi18n-loader/issues/16)
 - Add a config to expose the `root` object. [#19](https://github.com/futuweb/webpack-amdi18n-loader/issues/19)
 - Support using in global config (e.g. `webpack.config.js`) and passing options.
-- Better auto test for Node 7/8/10 and webpack 1/2/3/4. 
+- Better auto test for Node 7/8/10 and webpack 1/2/3/4.
 
 ### v0.7.0 (2018-03-20)
 
