@@ -169,6 +169,8 @@ module.exports = function (content) {
 				language = window._i18n.locale;
 			}else if(typeof document !== 'undefined' && document.documentElement.lang){
 				language = document.documentElement.lang;
+			}else if(typeof navigator !== 'undefined' && (navigator.languages || navigator.language || navigator.userLanguage)){
+				language = (navigator.languages[0] || navigator.language || navigator.userLanguage || 'root').toLowerCase();
 			}else{
 				language = 'root';
 			}
