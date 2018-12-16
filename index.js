@@ -170,7 +170,11 @@ module.exports = function (content) {
 			}else if(typeof document !== 'undefined' && document.documentElement.lang){
 				language = document.documentElement.lang;
 			}else if(typeof navigator !== 'undefined' && (navigator.languages || navigator.language || navigator.userLanguage)){
-				language = (navigator.languages[0] || navigator.language || navigator.userLanguage || 'root').toLowerCase();
+				// navigator.languages does not exist in IE 11
+				language = (navigator.languages && navigator.languages[0]) ||
+					navigator.language ||
+					navigator.userLanguage;
+				language = (language || 'root').toLowerCase();
 			}else{
 				language = 'root';
 			}
