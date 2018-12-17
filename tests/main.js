@@ -1,20 +1,29 @@
 var should = require('should');
 
-function mockWindowAndDocument() {
+function mockWindowDocumentNavigator() {
 	// Currently, the tests only run on Node, so window will never exist.
 	// But if the tests could run in the browser, we don't want to overwrite
 	// window or document.
 	var windowExists = typeof window !== 'undefined';
 	if (!windowExists) {
 		document = {documentElement:{}};
-		window = {document:document};
+		navigator = {};
+		window = {document:document, navigator:navigator};
 	}
 	return function() {
 		if (!windowExists) {
 			delete window;
+			delete navigator;
 			delete document;
 		}
 	};
+}
+
+function clearModule(id) {
+	// For some tests we load the same bundle/module multiple times.
+	// So we need to remove that module from the cache so that it will be
+	// properly loaded the next time.
+	delete require.cache[require.resolve(id)];
 }
 
 describe('basic function', function() {
@@ -37,12 +46,33 @@ describe('basic function', function() {
 });
 
 describe('fallback', function() {
-	var restoreWindow = mockWindowAndDocument();
+	var restore = mockWindowDocumentNavigator();
 	window._i18n = {locale:'zh-hk'};
 	var lang = require('./fallback/bundle');
-	restoreWindow();
+	restore();
 	it('fallback to root', function() {
 		lang.FALLBACK.should.equal('FALLBACK');
+	});
+});
+
+describe('navigator.languages', function() {
+	it('should use navigator.languages if present', function() {
+		var restore = mockWindowDocumentNavigator();
+		navigator.languages = ["zh-HK", "zh"];
+		var lang = require('./fallback/bundle');
+		clearModule('./fallback/bundle');
+		restore();
+		lang.HELLO.should.equal('雷吼');
+	});
+	it('should ignore undefined navigator.languages', function() {
+		var restore = mockWindowDocumentNavigator();
+		// navigator.languages doesn't exist on the mock by default,
+		// but make it explicit for clarity.
+		delete navigator.languages;
+		var lang = require('./fallback/bundle');
+		clearModule('./fallback/bundle');
+		restore();
+		lang.HELLO.should.equal('world');
 	});
 });
 
