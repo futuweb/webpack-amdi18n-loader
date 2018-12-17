@@ -135,9 +135,13 @@ If you choose to use `.json` files as your lang files in webpack 4+, You need to
 
 ## History
 
+### v0.9.1 (2018-12-17)
+
+- Fix: `navigator.languages` not exists on IE. [#28](https://github.com/futuweb/webpack-amdi18n-loader/issues/28) (By gitgrimbo)
+
 ### v0.9.0 (2018-12-14)
 
-- Read language settings from `navigator.languages` `navigator.language` and `navigator.userLanguage`. [#25]((https://github.com/futuweb/webpack-amdi18n-loader/issues/25)
+- Read language settings from `navigator.languages` `navigator.language` and `navigator.userLanguage`. [#25](https://github.com/futuweb/webpack-amdi18n-loader/issues/25)
 - Support using in Node environment. [#26](https://github.com/futuweb/webpack-amdi18n-loader/issues/26) (By gitgrimbo)
 
 ### v0.8.0 (2018-07-01)

@@ -133,6 +133,10 @@ require('amdi18n-loader?expose-root=1!')
 
 ## 版本历史
 
+### v0.9.1 (2018-12-17)
+
+- Fix: `navigator.languages`在IE上不存在的问题。 [#28](https://github.com/futuweb/webpack-amdi18n-loader/issues/28) (By gitgrimbo)
+
 ### v0.9.0 (2018-12-14)
 
 - 从`navigator.languages` `navigator.language` 或 `navigator.userLanguage`中读取当前语言。 [#25]((https://github.com/futuweb/webpack-amdi18n-loader/issues/25)
