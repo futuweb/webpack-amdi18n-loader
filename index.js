@@ -69,7 +69,7 @@ module.exports = function (content) {
 			script = 'json = ' + content;
 		}else{
 			// turn esm to commonjs2
-			content = content.replace(/export[\s\r\n]+default[\s\r\n]+/, 'module.exports=');
+			content = content.replace(/export[\s\r\n]+default[\s\r\n]*/, 'module.exports=');
 			// define the 'define()' function
 			script = 'var define=' + mockDefine.toString() + ';' +
 				// execute 'define()' function
