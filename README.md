@@ -135,6 +135,10 @@ If you choose to use `.json` files as your lang files in webpack 4+, You need to
 
 ## History
 
+### v0.9.2 (2019-02-12)
+
+- allows `export default{` without whitespace in ESM module lang files. [#30](https://github.com/futuweb/webpack-amdi18n-loader/issues/30) (By dlangerenken)
+
 ### v0.9.1 (2018-12-17)
 
 - Fix: `navigator.languages` not exists on IE. [#28](https://github.com/futuweb/webpack-amdi18n-loader/issues/28) (By gitgrimbo)

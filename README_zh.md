@@ -133,6 +133,10 @@ require('amdi18n-loader?expose-root=1!')
 
 ## 版本历史
 
+### v0.9.2 (2019-02-12)
+
+- 允许ESM模块的语言包文件使用`export default{`语法（不带空格）。 [#30](https://github.com/futuweb/webpack-amdi18n-loader/issues/30) (By dlangerenken)
+
 ### v0.9.1 (2018-12-17)
 
 - Fix: `navigator.languages`在IE上不存在的问题。 [#28](https://github.com/futuweb/webpack-amdi18n-loader/issues/28) (By gitgrimbo)
