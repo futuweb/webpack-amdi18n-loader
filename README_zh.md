@@ -133,6 +133,11 @@ require('amdi18n-loader?expose-root=1!')
 
 ## 版本历史
 
+### v0.9.3 (2019-06-28)
+
+- 升级`devDependencies`中的`mocha`版本。 [#32](https://github.com/futuweb/webpack-amdi18n-loader/issues/32) (By umar-khan)
+- Fix: 语言定义中，某个语言的`false`值会被忽略的问题。 [#33](https://github.com/futuweb/webpack-amdi18n-loader/issues/32) (By dlangerenken)
+
 ### v0.9.2 (2019-02-12)
 
 - 允许ESM模块的语言包文件使用`export default{`语法（不带空格）。 [#30](https://github.com/futuweb/webpack-amdi18n-loader/issues/30) (By dlangerenken)

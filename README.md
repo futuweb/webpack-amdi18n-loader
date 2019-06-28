@@ -135,6 +135,11 @@ If you choose to use `.json` files as your lang files in webpack 4+, You need to
 
 ## History
 
+### v0.9.3 (2019-06-28)
+
+- update `mocha` in `devDependencies`. [#32](https://github.com/futuweb/webpack-amdi18n-loader/issues/32) (By umar-khan)
+- Fix: `false` value of a language key in root file ignored. [#33](https://github.com/futuweb/webpack-amdi18n-loader/issues/32) (By dlangerenken)
+
 ### v0.9.2 (2019-02-12)
 
 - allows `export default{` without whitespace in ESM module lang files. [#30](https://github.com/futuweb/webpack-amdi18n-loader/issues/30) (By dlangerenken)
