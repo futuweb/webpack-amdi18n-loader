@@ -105,6 +105,7 @@ module.exports = function (content) {
 		if(language === 'root' && typeof json.root !== 'boolean') continue;
 		if(enableList.length && enableList.indexOf(language) === -1) continue;
 		if(disableList.indexOf(language) > -1) continue;
+		if (json[language] === false) continue; // ignore disabled languages
 		allLangs.push(language);
 	}
 	enableList.forEach(function(language){
