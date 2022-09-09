@@ -190,11 +190,18 @@ module.exports = function (content) {
 		}
 
 		// fallback to root
-		for(var name in this.__root){
-			if(typeof this[name] === 'undefined'){
-				this[name] = this.__root[name];
+		var recursiveFallback = function(target, source){
+			for(var name in source){
+				switch(typeof target[name]){
+				case 'undefined':
+					target[name] = source[name];
+					break;
+				case 'object':
+					recursiveFallback(target[name], source[name]);
+				}
 			}
-		}
+		};
+		recursiveFallback(this, this.__root);
 	};
 
 	// loader-related issue, nothing matters.

@@ -9,6 +9,7 @@ const config = {
 	entry:{
 		'basic/bundle':'./basic/main',
 		'fallback/bundle':'./fallback/main',
+		'nested-objects/bundle':'./nested-objects/main',
 		'format-amd/bundle':'./format-amd/main',
 		'format-amd-functions/bundle':'./format-amd-functions/main',
 		'format-json/bundle':'./format-json/main',
