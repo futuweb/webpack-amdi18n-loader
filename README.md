@@ -135,6 +135,10 @@ If you choose to use `.json` files as your lang files in webpack 4+, You need to
 
 ## History
 
+### v0.9.4 (2022-09-14)
+
+- Fallback: Add support for nested objects. [#35](https://github.com/futuweb/webpack-amdi18n-loader/pull/35) (By cavic19)
+
 ### v0.9.3 (2019-06-28)
 
 - update `mocha` in `devDependencies`. [#32](https://github.com/futuweb/webpack-amdi18n-loader/issues/32) (By umar-khan)

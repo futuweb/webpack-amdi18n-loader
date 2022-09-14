@@ -133,6 +133,10 @@ require('amdi18n-loader?expose-root=1!')
 
 ## 版本历史
 
+### v0.9.4 (2022-09-14)
+
+- 语言包回退：支持对象嵌套层级 [#35](https://github.com/futuweb/webpack-amdi18n-loader/pull/35) (By cavic19)
+
 ### v0.9.3 (2019-06-28)
 
 - 升级`devDependencies`中的`mocha`版本。 [#32](https://github.com/futuweb/webpack-amdi18n-loader/issues/32) (By umar-khan)
