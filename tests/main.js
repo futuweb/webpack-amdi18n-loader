@@ -76,6 +76,22 @@ describe('navigator.languages', function() {
 	});
 });
 
+describe('nested objects', function() {
+	var lang = require('./nested-objects/bundle');
+	lang.init('zh-hk');
+	it('fallback to root', function() {
+		lang.formal.HELLO.should.equal("雷吼");
+		lang.formal.SMALL_TALK.should.equal('What a beautiful weather, right?');
+	});
+	it('fallback to parent', function() {
+		lang.formal.letter.REQUEST.should.equal("我写这封信是想问问你们的咖啡馆是否愿意捐赠一张代金券");
+		lang.formal.letter.COMPLAINT.should.equal("I am writing to express my dismay");
+	});
+	it('fallback of the whole object to root', function() {
+		lang.informal.HELLO.should.equal("What's up");
+	});
+});
+
 describe('format-amd', function() {
 	var lang = require('./format-amd/bundle');
 	it('lang.HELLO(root, factory function)', function() {
