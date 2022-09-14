@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x, 16.x]
+        webpack-version: [1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm install
+      - name: Test with webpack ${{ matrix.webpack }}
+        run: |
+          echo "testing with webpack ${{ matrix.webpack-version }}.x"
+          npm prune
+          if [ ${{ matrix.webpack-version }} -eq 4 ]; then
+            npm install --no-save webpack-command webpack@${{ matrix.webpack-version }}
+          else
+            npm install --no-save webpack@${{ matrix.webpack-version }}
+          fi
+          npm test
